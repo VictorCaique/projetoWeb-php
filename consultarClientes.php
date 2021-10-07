@@ -2,15 +2,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta name="format-detection" content="telephone=no">
-	<meta name="msapplication-tap-highlight" content="no">
-	<meta name="viewport" content="initial-scale=1, width=device-width, viewport-fit=cover">
-	<meta name="color-scheme" content="light dark"> 
+	<meta name="format-detection" content="telephone=no"> <meta name="msapplication-tap-highlight" content="no">
+	<meta name="viewport" content="initial-scale=1, width=device-width, viewport-fit=cover"> <meta name="color-scheme" content="light dark"> 
 	<link rel="stylesheet" href="bootstrap/css/bootstrap.css"> 
 	<link rel="stylesheet" href="css/estilo.css">
 	<script src="js/jquery.js"></script>
 	<script src="bootstrap/js/bootstrap.js"></script>
-	<script src="js/funcoes.js"></script>
+	<script type="text/javascript" src="js/confirmDelete.js"></script>
 	<title>SISTEMA DE AGENDAMENTO - CLIENTES</title>
 </head> 
 <body> 
@@ -62,8 +60,8 @@
 							<td scope="col"><?php echo $resultado[$i]['data_contato']; ?></td>
 							<td scope="col"><?php echo $resultado[$i]['observacao']; ?></td>
 							<td scope="col">
-								<a href="editarClientes.php"><button type="button" class="btn btn-outline-primary" style="width: 72px;">Editar</button></a>
-								<button type="button" class="btn btn-outline-primary" style="width: 72px;">Excluir</button>
+								<button type="button" class="btn btn-outline-primary" onclick="location.href='editarClientes.php?id=<?php echo $resultado[$i]['id']; ?>'" style="width: 72px;">Editar</button>
+								<button type="button" class="btn btn-outline-primary" onclick="javascript: confirmDelete('excluirClientes.php?id=<?php echo $resultado[$i]['id']; ?>')" style="width: 72px;">Excluir</button>
 							</td>
 						</tr>
 

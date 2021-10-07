@@ -47,6 +47,7 @@ class Banco{
                 $f_lista[$i]['origem'] = $l['origem'];
                 $f_lista[$i]['data_contato'] = $l['data_contato'];
                 $f_lista[$i]['observacao'] = $l['observacao'];
+                $i++;
             }
             return $f_lista;
         } catch (Exception $e) {
@@ -56,6 +57,15 @@ class Banco{
 
     public function updateAgendamentos($id,$nome,$telefone,$origem,$data_contato,$observacao){
        $stmt = $this->mysqli->query("UPDATE agendamentos SET `nome` = '" . $nome . "', `telefone` =  '" . $telefone . "', `origem` =  '" . $origem . "', `data_contato` =  '" . $data_contato . "', `observacao` =   '" . $observacao . "' WHERE `id` =  '" . $id . "';");
+        if( $stmt > 0){
+            return true ;
+        }else{
+            return false;
+        }
+    }
+
+    public function deleteAgendamentos($id){
+        $stmt = $this->mysqli->query("DELETE FROM agendamentos WHERE `id` =  '" . $id . "';");
         if( $stmt > 0){
             return true ;
         }else{

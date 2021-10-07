@@ -64,5 +64,8 @@ class Cadastro extends Banco {
         return $this->updateAgendamentos($this->getId(),$this->getNome(),$this->getTelefone(),$this->getOrigem(),$this->getData_contato(),$this->getObservacao());
     }
 
+    public function excluir($id){
+        return $this->deleteAgendamentos($id);
+    }
 }
 ?>
